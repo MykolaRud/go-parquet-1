@@ -21,10 +21,6 @@ func (repo *TitanicRepository) TruncateRecords() {
 }
 
 func (repo *TitanicRepository) AddPassenger(passenger models.TitanicPassenger) (int64, error) {
-
-	//url := article.Url[:min(250, len(article.Url))]
-	//title := article.Title[:min(250, len(article.Title))]
-
 	Result, err := repo.DBHandler.Execute("insert into titanic (passenger_id, survived, pclass, name, sex, age, sib_sp, parch, ticket, fare, cabin, embarked) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
 		passenger.Id,
 		passenger.Survived,
